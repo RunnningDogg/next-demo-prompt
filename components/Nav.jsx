@@ -8,6 +8,7 @@ function Nav() {
   // data 拿出来 rename -> session
   const { data: session } = useSession();
 
+  // console.log(session)
   // const isUserLoggedIn = true;
 
 
@@ -17,10 +18,10 @@ function Nav() {
   useEffect(() => {
     const setProvidersAsync = async () => {
       const response = await getProviders();
-      console.log("res ", response)
+      // console.log("res ", response)
       setProviders(response)
     }
-    console.log("hi")
+    // console.log("hi")
     setProvidersAsync();
   }, [])
 
@@ -43,11 +44,11 @@ function Nav() {
             <Link href="/create-prompt" className="black_btn">Create Post</Link>
             <button type="button" className="outline_btn" onClick={signOut}>Sign Out</button>
             <Link href="/profile">
-              <Image src="/assets/images/logo.svg" width={37} height={37} alt="logo" className="rounded-full" />
+              <Image src={session?.user.image} width={37} height={37} alt="logo" className="rounded-full" />
             </Link>
           </div>
         ) : (
-          <div>
+          <div className="flex gap-3">
             {providers && Object.values(providers).map(provider => (
               <button
                 type="button"
@@ -55,7 +56,7 @@ function Nav() {
                 onClick={() => signIn(provider.id)}
                 className="black_btn"
               >
-                Sign In
+                Sign In with {provider.name}
               </button>
             )
 
@@ -70,7 +71,7 @@ function Nav() {
         {session?.user ? (
           <div className="flex">
             <Image
-              src="/assets/images/logo.svg"
+              src={session.user.image}
               width={37}
               height={37}
               alt="logo"
@@ -116,7 +117,7 @@ function Nav() {
                 onClick={() => signIn(provider.id)}
                 className="black_btn"
               >
-                Sign In
+                Sign In with {provider.name}
               </button>
             ))}
 
