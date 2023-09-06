@@ -1,7 +1,7 @@
-import '@styles/global.css'
-import '@Components/Nav'
-import Nav from '@Components/Nav'
-import Provider from '@components/Provider'
+import '@/styles/global.css'
+import '@/Components/Nav'
+import Nav from '@/Components/Nav'
+import Provider from '@/components/Provider'
 
 export const metadata = {
   title: 'Next.js',
