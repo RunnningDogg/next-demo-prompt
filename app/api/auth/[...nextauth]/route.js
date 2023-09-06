@@ -1,8 +1,8 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google"
 import GithubProvider from "next-auth/providers/github"
-import { connectToDatabase } from "@utils/database";
-import User from "@models/user";
+import { connectToDatabase } from "@/utils/database";
+import User from "@/models/user";
 
 // console.log("google client id ", process.env.GOOGLE_CLIENT_ID)
 // console.log("google client secret ", process.env.GOOGLE_CLIENT_SECRET)
